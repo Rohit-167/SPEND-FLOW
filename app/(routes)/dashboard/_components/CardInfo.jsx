@@ -11,7 +11,7 @@ const currencyFormat = new Intl.NumberFormat('en-IN', {
 
 function StatTile({ icon: Icon, label, value, tone, plain, loading }) {
   return (
-    <div className='p-5 rounded-2xl border bg-white hover:shadow-sm transition-shadow'>
+    <div className='p-5 rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer'>
       <div className='flex items-center justify-between'>
         <div className={`p-2.5 rounded-xl ${tone}`}>
           <Icon size={20} />

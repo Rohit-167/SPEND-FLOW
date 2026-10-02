@@ -27,14 +27,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200 shadow-2xl mt-8">
           <Image
             src="/dashboard.png"
             alt="Dashboard Preview"
             width={1200}
-            height={800}
-            className="w-full max-w-5xl rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800 object-cover"
+            height={750}
+            className="w-full h-auto object-cover"
             priority
+            unoptimized
           />
         </div>
       </div>

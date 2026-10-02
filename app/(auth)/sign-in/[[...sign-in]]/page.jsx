@@ -1,24 +1,26 @@
 import { SignIn } from "@clerk/nextjs";
+import Image from "next/image";
 
 export default function Page() {
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        {/* Left Side: Image / Banner (Like HyperUI) */}
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full bg-cover bg-center opacity-80"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1617195737496-bc30197e35ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
-            }}
-          />
-
-          <div className="hidden lg:relative lg:block lg:p-12">
-            <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+        <section className="flex min-h-[420px] items-center justify-center bg-slate-950 px-6 py-12 sm:px-10 lg:col-span-5 lg:min-h-screen lg:px-12 xl:col-span-6">
+          <div className="w-full max-w-xl text-center">
+            <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 p-2 shadow-2xl">
+              <Image
+                src="/live-dashboard-preview.png"
+                alt="Preview of the Expense Tracker dashboard"
+                fill
+                priority
+                sizes="(max-width: 1024px) 90vw, 42vw"
+                className="object-contain"
+              />
+            </div>
+            <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
               Welcome to Expense Tracker 💰
             </h2>
-            <p className="mt-4 leading-relaxed text-white/90">
+            <p className="mx-auto mt-4 max-w-lg leading-relaxed text-white/80">
               Manage your budget, track expenses, and stay on top of your financial goals easily.
             </p>
           </div>

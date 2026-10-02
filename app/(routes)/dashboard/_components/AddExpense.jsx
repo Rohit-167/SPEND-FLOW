@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { PlusCircle, Receipt, ChevronDown } from 'lucide-react'
+import { toast } from 'sonner'
 import {
   Dialog,
   DialogClose,
@@ -114,12 +115,13 @@ export default function AddExpense({
         amount: numericAmount,
         budgetId: numericBudgetId
       })
+      toast.success('Successfully saved!')
       resetForm()
       setOpen(false)
       refreshData && refreshData()
     } catch (err) {
       console.error('Error adding expense:', err)
-      setError(err?.message || 'Unable to add expense. Please try again.')
+      toast.error('Something went wrong. Please try again.')
     } finally {
       setSubmitting(false)
     }

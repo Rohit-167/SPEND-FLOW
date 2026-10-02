@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { PlusCircle, Wallet } from 'lucide-react'
+import { toast } from 'sonner'
 import {
   Dialog,
   DialogClose,
@@ -68,12 +69,13 @@ function CreateBudget({ refreshData }) {
         createdBy: user.primaryEmailAddress.emailAddress
       })
 
+      toast.success('Successfully saved!')
       resetForm()
       setOpen(false)
       refreshData && refreshData()
     } catch (err) {
       console.error('Error creating budget:', err)
-      setError(err?.message || 'Unable to create budget. Please try again.')
+      toast.error('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }

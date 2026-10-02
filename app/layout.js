@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={outfit.className}>
         <ClerkProvider appearance={{ theme: shadcn }}>
+          <Toaster position="top-right" richColors />
           {children}
-          <Toaster richColors position="top-right" />
         </ClerkProvider>
       </body>
     </html>

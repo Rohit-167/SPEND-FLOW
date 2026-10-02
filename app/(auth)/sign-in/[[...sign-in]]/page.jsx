@@ -7,14 +7,15 @@ export default function Page() {
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section className="flex min-h-[420px] items-center justify-center bg-slate-950 px-6 py-12 sm:px-10 lg:col-span-5 lg:min-h-screen lg:px-12 xl:col-span-6">
           <div className="w-full max-w-xl text-center">
-            <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 p-2 shadow-2xl">
+            <div className="relative w-full max-w-xl aspect-[16/10] mb-8 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
               <Image
-                src="/live-dashboard-preview.png"
+                src="/dashboard-preview.png"
                 alt="Preview of the Expense Tracker dashboard"
                 fill
+                quality={100}
                 priority
                 sizes="(max-width: 1024px) 90vw, 42vw"
-                className="object-contain"
+                className="object-cover object-top"
               />
             </div>
             <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">

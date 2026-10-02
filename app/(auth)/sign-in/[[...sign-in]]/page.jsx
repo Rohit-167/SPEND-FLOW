@@ -1,37 +1,53 @@
 import { SignIn } from "@clerk/nextjs";
-import Image from "next/image";
+import { BarChart3, ShieldCheck, Wallet } from "lucide-react";
 
 export default function Page() {
   return (
-    <section className="bg-white">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        <section className="relative flex flex-col justify-end overflow-hidden p-8 lg:col-span-6 lg:p-12 xl:col-span-7">
-          <Image
-            src="/dashboard-preview.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent z-10" />
-          <div className="relative z-20 text-white max-w-lg">
-            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
-              Welcome to Expense Tracker 💰
-            </h2>
-            <p className="mt-4 leading-relaxed text-white/80">
-              Manage your budget, track expenses, and stay on top of your financial goals easily.
-            </p>
+    <main className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
+      <section className="flex flex-col justify-between bg-slate-950 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 to-slate-950 p-8 sm:p-12 lg:p-16">
+        <div className="flex items-center gap-2 text-2xl font-bold text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500">
+            <Wallet size={19} strokeWidth={2.5} aria-hidden="true" />
           </div>
-        </section>
+          SpendFlow
+        </div>
 
-        {/* Right Side: Clerk Sign-In Form */}
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-6 lg:px-16 lg:py-12 xl:col-span-5">
-          <div className="max-w-xl lg:max-w-3xl">
+        <div className="my-16 max-w-xl lg:my-0">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+            A clearer view of your finances
+          </p>
+          <h1 className="text-4xl font-extrabold leading-tight text-white lg:text-5xl">
+            Master your money.
+            <br />
+            <span className="text-blue-400">Secure your future.</span>
+          </h1>
+          <p className="mt-6 max-w-lg text-base leading-7 text-slate-300 sm:text-lg">
+            SpendFlow makes it easy to build healthier financial habits with simple budgets,
+            clear insights, and effortless expense tracking.
+          </p>
+        </div>
+
+        <ul className="grid gap-4 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-1">
+          <li className="flex items-center gap-3">
+            <ShieldCheck className="text-blue-400" size={19} aria-hidden="true" />
+            Bank-grade security
+          </li>
+          <li className="flex items-center gap-3">
+            <BarChart3 className="text-blue-400" size={19} aria-hidden="true" />
+            Real-time analytics
+          </li>
+          <li className="flex items-center gap-3">
+            <Wallet className="text-blue-400" size={19} aria-hidden="true" />
+            Smart budgeting
+          </li>
+        </ul>
+      </section>
+
+      <section className="flex min-h-[80vh] items-center justify-center bg-white p-8 lg:min-h-screen">
+        <div className="w-full max-w-md">
             <SignIn />
-          </div>
-        </main>
-      </div>
-    </section>
+        </div>
+      </section>
+    </main>
   );
 }

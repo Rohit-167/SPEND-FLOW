@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, BarChart3, PiggyBank, Zap } from 'lucide-react'
+import { ArrowRight, BarChart3, Check, PiggyBank, Zap } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -75,6 +75,79 @@ export default function Hero() {
           />
         </div>
       </section>
+
+      <section className='px-4 py-16 sm:px-6 sm:py-20 lg:px-8'>
+        <div className='mx-auto max-w-6xl'>
+          <div className='mx-auto max-w-2xl text-center'>
+            <p className='text-sm font-semibold uppercase tracking-wider text-blue-600'>
+              How it works
+            </p>
+            <h2 className='mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
+              Simple steps to financial freedom
+            </h2>
+          </div>
+          <div className='mt-12 grid grid-cols-1 gap-5 md:grid-cols-3'>
+            <StepCard
+              number='01'
+              title='1. Sign Up Securely'
+              description='Get started in moments with secure Clerk authentication and a quick account setup.'
+            />
+            <StepCard
+              number='02'
+              title='2. Set Your Budgets'
+              description='Define spending limits for the categories that matter in your everyday life.'
+            />
+            <StepCard
+              number='03'
+              title='3. Track & Analyze'
+              description='Log expenses and watch your charts update in real time as you spend.'
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className='bg-slate-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'>
+        <div className='mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center md:gap-16'>
+          <div>
+            <p className='text-sm font-semibold uppercase tracking-wider text-blue-600'>
+              Why SpendFlow?
+            </p>
+            <h2 className='mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
+              Designed for everyday people, not accountants.
+            </h2>
+          </div>
+          <ul className='grid gap-5 sm:grid-cols-2'>
+            {['Secure Data', 'Instant Sync', 'Mobile-Friendly', '100% Free'].map((item) => (
+              <li key={item} className='flex items-center gap-3 text-base font-medium text-slate-700'>
+                <span className='flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700'>
+                  <Check size={17} strokeWidth={2.5} aria-hidden='true' />
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className='px-4 py-16 sm:px-6 lg:px-8'>
+        <div className='mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 rounded-3xl bg-blue-900 px-6 py-16 text-center text-white shadow-xl shadow-blue-950/10 sm:px-12 md:flex-row md:text-left lg:px-16'>
+          <div>
+            <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+              Ready to start saving? Join SpendFlow today.
+            </h2>
+            <p className='mt-3 max-w-2xl text-blue-100'>
+              Take the first step toward a clearer picture of your finances.
+            </p>
+          </div>
+          <Link
+            href='/sign-in'
+            className='inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-blue-900 shadow-sm transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900'
+          >
+            Get Started for Free
+            <ArrowRight size={17} />
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }
@@ -86,6 +159,18 @@ function FeatureCard({ icon: Icon, title, description, iconClass }) {
         <Icon size={22} aria-hidden='true' />
       </div>
       <h2 className='mt-5 text-lg font-semibold text-slate-900'>{title}</h2>
+      <p className='mt-2 text-sm leading-6 text-slate-600'>{description}</p>
+    </article>
+  )
+}
+
+function StepCard({ number, title, description }) {
+  return (
+    <article className='rounded-2xl border border-slate-100 bg-white p-6 shadow-sm'>
+      <span className='inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-700'>
+        {number}
+      </span>
+      <h3 className='mt-5 text-lg font-semibold text-slate-900'>{title}</h3>
       <p className='mt-2 text-sm leading-6 text-slate-600'>{description}</p>
     </article>
   )

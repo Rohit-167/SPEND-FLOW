@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
-import { LayoutGrid, HandCoins, Receipt, ShieldCheck } from 'lucide-react'
+import { LayoutGrid, HandCoins, Receipt, ShieldCheck, Wallet } from 'lucide-react'
 import { UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -44,13 +43,13 @@ function SideNav() {
   return (
     <div className='h-screen p-5 border shadow-sm flex flex-col justify-between bg-white'>
       <div>
-        <Link href='/dashboard'>
-          <Image src={'/logo.svg'}
-            alt='logo'
-            width={160}
-            height={100}
-            priority
-          />
+        <Link href='/dashboard' aria-label='SpendFlow dashboard'>
+          <div className='flex items-center gap-2 mb-8'>
+            <div className='bg-blue-600 p-1.5 rounded-lg flex items-center justify-center shadow-sm'>
+              <Wallet className='w-5 h-5 text-white' />
+            </div>
+            <span className='text-xl font-bold text-slate-900'>SpendFlow</span>
+          </div>
         </Link>
         <div className='mt-5'>
           {menuList.map((menu) => {
